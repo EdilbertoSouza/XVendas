@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XVendas"
+             xmlns:control="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+             x:Class="XVendas.View.PedidoItemPage"
+             Title="Item de Pedido">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="v" Clicked="OnConfirmClicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android, UWP" Value="check.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Orientation="Vertical">
+        <StackLayout Padding="15" Spacing="15" Orientation="Horizontal">
+            <StackLayout Padding="5" Spacing="15" Orientation="Vertical" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                <Label Text="Produto"   HeightRequest="40"  TextColor="Black"/>
+                <Label Text="Quant"     HeightRequest="40"  TextColor="Black"/>
+                <Label Text="Preco"     HeightRequest="40"  TextColor="Black"/>
+                <Label Text="Valor"     HeightRequest="40"  TextColor="Black"/>
+            </StackLayout>
+            <StackLayout Padding="5" Spacing="15" Orientation="Vertical" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                <Picker x:Name="IteProduto" HeightRequest="40" TextColor="Black"/>
+                <Entry x:Name="IteQuant"    HeightRequest="40" Placeholder="Quant"   TextColor="Black" Keyboard="Numeric"/>
+                <Entry x:Name="ItePreco"    HeightRequest="40" Placeholder="Preço"   TextColor="Black" Keyboard="Numeric"/>
+                <Label x:Name="IteValor"    HeightRequest="40" TextColor="Blue"/>
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XVendas.View.ProdutoDetailPage"
+             Title="Produto">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="v" Clicked="OnConfirmClicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android, UWP" Value="check.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <StackLayout Padding="5" Spacing="15" Orientation="Horizontal">
+        <StackLayout Padding="5" Spacing="15" Orientation="Vertical" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+            <Label Text="Descrição" HeightRequest="40"  TextColor="Black"/>
+            <Label Text="Unidade"   HeightRequest="40"  TextColor="Black"/>
+            <Label Text="Preço"     HeightRequest="40"  TextColor="Black"/>
+            <Label Text="Estoque"   HeightRequest="40"  TextColor="Black"/>
+        </StackLayout>
+        <StackLayout Padding="5" Spacing="15" Orientation="Vertical" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+            <Entry x:Name="DescProduto"     Placeholder="Descricao" HeightRequest="40" TextColor="Black"/>
+            <Entry x:Name="UnidProduto"     Placeholder="Unid"      HeightRequest="40" TextColor="Black"/>
+            <Entry x:Name="PrecoProduto"    Placeholder="Preço"     HeightRequest="40" TextColor="Black" Keyboard="Numeric" ReturnType="Send"/>
+            <Entry x:Name="Estoque"         Text="Estoque"          HeightRequest="40" TextColor="Blue"  Keyboard="Numeric"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

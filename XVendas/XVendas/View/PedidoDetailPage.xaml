@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XVendas"
+             x:Class="XVendas.View.PedidoDetailPage"
+             Title="Pedido">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="v" Clicked="OnConfirmClicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android, UWP" Value="check.png"/>
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Orientation="Vertical">
+        <StackLayout Padding="15" Spacing="15" Orientation="Horizontal">
+            <StackLayout Padding="5" Spacing="15" Orientation="Vertical" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                <Label Text="Número"    HeightRequest="40"  TextColor="Black"/>
+                <Label Text="Emissão"   HeightRequest="40"  TextColor="Black"/>
+                <Label Text="Cliente"   HeightRequest="40"  TextColor="Black"/>
+                <Label Text="Valor"     HeightRequest="40"  TextColor="Black"/>
+            </StackLayout>
+            <StackLayout Padding="5" Spacing="15" Orientation="Vertical" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                <Label  x:Name="PedId"           HeightRequest="40"  TextColor="Blue"/>
+                <DatePicker x:Name="PedEmissao"  HeightRequest="40"  Format="dd/MM/yyyy"/>
+                <Picker x:Name="PedClienteId"    HeightRequest="40"/>
+                <Label  x:Name="PedValor"        HeightRequest="40"  Text="{Binding Valor}" TextColor="Blue"/>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout Padding="5" Spacing="15" Orientation="Vertical" VerticalOptions="Start">
+            <ListView x:Name="listView" SelectionMode="Single" 
+                      ItemSelected="OnItemSelected">
+                <ListView.Header>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="#91CA47">
+                        <Label Text="Itens do Pedido" FontSize="Medium" TextColor="White" WidthRequest="350"/>
+                    </StackLayout>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Spacing="5" HeightRequest="30">
+                                <Label Text="{Binding Produto}" TextColor="#f35e20" FontFamily="Consolas" WidthRequest="300" YAlign="Center" />
+                                <Label Text="{Binding Quant}" TextColor="#503026" FontFamily="Consolas" WidthRequest="70" YAlign="Center" XAlign="End"/>
+                                <Label Text="{Binding Preco}" TextColor="#503026" FontFamily="Consolas" WidthRequest="70" YAlign="Center" XAlign="End"/>
+                                <Label Text="{Binding Valor}" TextColor="#503026" FontFamily="Consolas" WidthRequest="70" YAlign="Center" XAlign="End"/>
+                            </StackLayout>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Excluir" Clicked="OnDelItemClicked" CommandParameter="{Binding .}" IsDestructive="True" />
+                            </ViewCell.ContextActions>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Incluir Item" TextColor="White" BackgroundColor="#91CA47" FontSize="Medium"
+                    HorizontalOptions="Center" BorderRadius="10" Clicked="OnAddItemClicked"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

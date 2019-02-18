@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XVendas.View.ProdutosListPage"
+             Title="Produtos">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+" x:Name="AddButton" Clicked="OnAddClicked">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android, UWP" Value="plus.png" />
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <StackLayout Padding="15" Spacing="15">
+        <ListView x:Name="listView" SelectionMode="Single" ItemSelected="OnListItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Descricao}" Detail="{Binding Preco}" TextColor="#f35e20" DetailColor="#503026" >
+                        <TextCell.ContextActions>
+                            <MenuItem Text="Excluir"     Clicked="OnDelClicked"      CommandParameter="{Binding .}" IsDestructive="True" />
+                        </TextCell.ContextActions>
+                    </TextCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

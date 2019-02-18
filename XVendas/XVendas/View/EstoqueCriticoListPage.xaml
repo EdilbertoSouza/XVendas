@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XVendas.View.EstoqueCriticoListPage"
+             Title="Estoque Crítico">
+    <StackLayout Padding="15" Spacing="15">
+        <ListView x:Name="listView" SelectionMode="Single" ItemSelected="OnListItemSelected">
+            <ListView.Header>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="#91CA47">
+                    <Label Text="Produto"   TextColor="White" WidthRequest="80"/>
+                    <Label Text="Descrição" TextColor="White" WidthRequest="350"/>
+                    <Label Text="Estoque"   TextColor="White" WidthRequest="80"/>
+                </StackLayout>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Spacing="5" HeightRequest="30">
+                            <Label Text="{Binding Id}"          TextColor="#f35e20" FontFamily="Consolas" WidthRequest="80"  YAlign="Center" />
+                            <Label Text="{Binding Descricao}"   TextColor="#503026" FontFamily="Consolas" WidthRequest="300" YAlign="Center" />
+                            <Label Text="{Binding Estoque}"     TextColor="#503026" FontFamily="Consolas" WidthRequest="80"  YAlign="Center" XAlign="End"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
